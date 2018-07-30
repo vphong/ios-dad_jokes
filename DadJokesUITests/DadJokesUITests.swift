@@ -1,14 +1,14 @@
 //
-//  Dad_JokesUITests.swift
-//  Dad JokesUITests
+//  DadJokesUITests.swift
+//  DadJokesUITests
 //
-//  Created by Vanna Phong on 29/07/2018.
+//  Created by Vanna Phong on 30/07/2018.
 //  Copyright © 2018 vphong. All rights reserved.
 //
 
 import XCTest
 
-class Dad_JokesUITests: XCTestCase {
+class DadJokesUITests: XCTestCase {
         
     override func setUp() {
         super.setUp()

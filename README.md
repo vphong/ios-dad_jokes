@@ -13,3 +13,7 @@ an app that gets a random dad joke from https://icanhazdadjoke.com/graphql and g
   * copy/paste/share joke
   * typography design
   * interaction animations
+
+## references
+* [AppCoda: Creating Gradient Colors Using CAGradientLayer](https://www.appcoda.com/cagradientlayer/)
+* https://www.apollographql.com/docs/ios/installation.html

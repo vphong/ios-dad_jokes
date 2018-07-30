@@ -1,0 +1,7 @@
+query RandomJoke {
+    joke {
+        id
+        joke
+        permalink
+    }
+}

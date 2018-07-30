@@ -1,18 +1,22 @@
 //
-//  JokeViewController.swift
-//  Dad Jokes
+//  RandomJokeViewController.swift
+//  
 //
-//  Created by Vanna Phong on 29/07/2018.
-//  Copyright © 2018 vphong. All rights reserved.
+//  Created by Vanna Phong on 30/07/2018.
 //
 
 import UIKit
 
-class JokeViewController: UIViewController {
+class RandomJokeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        apollo.fetch(query: RandomJokeQuery()) { (result, error) in
+            if let result = result {
+                print("\(String(describing: result.data?.joke))")
+            } // Luke Skywalker
+        }
         // Do any additional setup after loading the view.
     }
 

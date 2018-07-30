@@ -1,15 +1,15 @@
 //
-//  Dad_JokesTests.swift
-//  Dad JokesTests
+//  DadJokesTests.swift
+//  DadJokesTests
 //
-//  Created by Vanna Phong on 29/07/2018.
+//  Created by Vanna Phong on 30/07/2018.
 //  Copyright © 2018 vphong. All rights reserved.
 //
 
 import XCTest
-@testable import Dad_Jokes
+@testable import DadJokes
 
-class Dad_JokesTests: XCTestCase {
+class DadJokesTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
