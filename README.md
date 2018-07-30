@@ -13,7 +13,12 @@ an app that gets a random dad joke from https://icanhazdadjoke.com/graphql and g
   * copy/paste/share joke
   * typography design
   * interaction animations
+* navigation
+  * swipe left or pull down for new random joke
+  * swipe right for previous joke
+  * star/save button, share button
+  * saved jokes
 
 ## references
-* [AppCoda: Creating Gradient Colors Using CAGradientLayer](https://www.appcoda.com/cagradientlayer/)
+* [Getting Started with CoreData](https://www.raywenderlich.com/173972/getting-started-with-core-data-tutorial-2)
 * https://www.apollographql.com/docs/ios/installation.html

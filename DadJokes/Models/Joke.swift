@@ -9,14 +9,8 @@
 import Foundation
 import Apollo
 
-class Joke {
+struct Joke {
     var id: String?
-    var joke: String?
+    var text: String?
     
-    
-    init(id: String, joke: String) {
-        self.id = id
-        self.joke = joke
-    }
 }
-
