@@ -17,10 +17,11 @@
 		CAC1F9FF210F84CD00DA32F8 /* DadJokesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC1F9FE210F84CD00DA32F8 /* DadJokesTests.swift */; };
 		CAC1FA0A210F84CE00DA32F8 /* DadJokesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC1FA09210F84CE00DA32F8 /* DadJokesUITests.swift */; };
 		CAC1FA1E210F882C00DA32F8 /* RandomJokeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC1FA1D210F882C00DA32F8 /* RandomJokeViewController.swift */; };
-		CAC1FA27210F8A3B00DA32F8 /* schema.json in Resources */ = {isa = PBXBuildFile; fileRef = CAC1FA25210F8A3B00DA32F8 /* schema.json */; };
 		CAC1FA29210F8B2000DA32F8 /* RandomJokeViewController.graphql in Resources */ = {isa = PBXBuildFile; fileRef = CAC1FA28210F8B2000DA32F8 /* RandomJokeViewController.graphql */; };
 		CAC1FA2B210F8BA100DA32F8 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC1FA2A210F8BA100DA32F8 /* API.swift */; };
 		CAC1FA2D210F8D8400DA32F8 /* Joke.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC1FA2C210F8D8400DA32F8 /* Joke.swift */; };
+		CADD8AB9210FC88000718122 /* schema.json in Resources */ = {isa = PBXBuildFile; fileRef = CADD8AB8210FC88000718122 /* schema.json */; };
+		CAE4E634210FFD4C0000D7AB /* RESTAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE4E633210FFD4C0000D7AB /* RESTAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,10 +62,11 @@
 		CAC1FA09210F84CE00DA32F8 /* DadJokesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DadJokesUITests.swift; sourceTree = "<group>"; };
 		CAC1FA0B210F84CE00DA32F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CAC1FA1D210F882C00DA32F8 /* RandomJokeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomJokeViewController.swift; sourceTree = "<group>"; };
-		CAC1FA25210F8A3B00DA32F8 /* schema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
 		CAC1FA28210F8B2000DA32F8 /* RandomJokeViewController.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = RandomJokeViewController.graphql; sourceTree = "<group>"; };
 		CAC1FA2A210F8BA100DA32F8 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		CAC1FA2C210F8D8400DA32F8 /* Joke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Joke.swift; sourceTree = "<group>"; };
+		CADD8AB8210FC88000718122 /* schema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
+		CAE4E633210FFD4C0000D7AB /* RESTAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RESTAPI.swift; sourceTree = "<group>"; };
 		D98CA955B0645BDCC2E5F136 /* Pods_DadJokesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DadJokesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F830047F369F596FFA665DB1 /* Pods-DadJokesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DadJokesTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DadJokesTests/Pods-DadJokesTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -135,13 +137,14 @@
 		CAC1F9E8210F84CC00DA32F8 /* DadJokes */ = {
 			isa = PBXGroup;
 			children = (
-				CAC1FA25210F8A3B00DA32F8 /* schema.json */,
 				CAC1FA18210F879600DA32F8 /* Models */,
 				CAC1FA1A210F87B600DA32F8 /* Views */,
 				CAC1FA1B210F87BF00DA32F8 /* View Models */,
 				CAC1FA1C210F87C600DA32F8 /* View Controllers */,
 				CAC1F9E9210F84CC00DA32F8 /* AppDelegate.swift */,
 				CAC1FA2A210F8BA100DA32F8 /* API.swift */,
+				CAE4E633210FFD4C0000D7AB /* RESTAPI.swift */,
+				CADD8AB8210FC88000718122 /* schema.json */,
 				CAC1F9ED210F84CC00DA32F8 /* Main.storyboard */,
 				CAC1F9F0210F84CD00DA32F8 /* Assets.xcassets */,
 				CAC1F9F2210F84CD00DA32F8 /* LaunchScreen.storyboard */,
@@ -318,8 +321,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CAC1FA27210F8A3B00DA32F8 /* schema.json in Resources */,
 				CAC1F9F4210F84CD00DA32F8 /* LaunchScreen.storyboard in Resources */,
+				CADD8AB9210FC88000718122 /* schema.json in Resources */,
 				CAC1FA29210F8B2000DA32F8 /* RandomJokeViewController.graphql in Resources */,
 				CAC1F9F1210F84CD00DA32F8 /* Assets.xcassets in Resources */,
 				CAC1F9EF210F84CC00DA32F8 /* Main.storyboard in Resources */,
@@ -440,6 +443,7 @@
 			files = (
 				CAC1FA1E210F882C00DA32F8 /* RandomJokeViewController.swift in Sources */,
 				CAC1FA2B210F8BA100DA32F8 /* API.swift in Sources */,
+				CAE4E634210FFD4C0000D7AB /* RESTAPI.swift in Sources */,
 				CAC1FA2D210F8D8400DA32F8 /* Joke.swift in Sources */,
 				CAC1F9EA210F84CC00DA32F8 /* AppDelegate.swift in Sources */,
 			);

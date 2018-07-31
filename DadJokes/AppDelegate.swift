@@ -10,8 +10,17 @@ import UIKit
 import CoreData
 import Apollo
 
-let graphqlEndpoint = "https://icanhazdadjoke.com/graphql"
-let apollo = ApolloClient(url: URL(string: graphqlEndpoint)!)
+// MARK: - GraphQL endpoint/Apollo
+
+//let _graphqlEndpoint = "https://icanhazdadjoke.com/graphql"
+//let apollo: ApolloClient = {
+//
+//    let url = URL(string: _graphqlEndpoint)!
+//    let configuration = URLSessionConfiguration.default
+//    configuration.httpAdditionalHeaders = ["User-Agent": "contact@vanna.io (https://github.com/vphong/ios-dad_jokes)"]
+//
+//    return ApolloClient(networkTransport: HTTPNetworkTransport(url: url, configuration: configuration))
+//}()
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,6 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
         return true
     }
 
