@@ -1,0 +1,9 @@
+language: swift
+osx_image: xcode9.4
+xcode_workspace: DadJokes.xcworkspace
+xcode_scheme: DadJokes
+podfile: Podfile
+install:
+  - bundle install
+script:
+  - fastlane beta

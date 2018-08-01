@@ -11,6 +11,7 @@
 		C57865BF79C401F4AD5F6D29 /* Pods_DadJokesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ED581279BD82ED17B8B8379 /* Pods_DadJokesUITests.framework */; };
 		C85370CEA8434D9B8A218A49 /* Pods_DadJokes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91F9316CF659DD9EDA17DF02 /* Pods_DadJokes.framework */; };
 		CA3CC4DE211153270085094D /* JokeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3CC4DD211153270085094D /* JokeViewModel.swift */; };
+		CA6CE013211186BF00D93D25 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6CE012211186BF00D93D25 /* SnapshotHelper.swift */; };
 		CAC1F9EA210F84CC00DA32F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC1F9E9210F84CC00DA32F8 /* AppDelegate.swift */; };
 		CAC1F9EF210F84CC00DA32F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAC1F9ED210F84CC00DA32F8 /* Main.storyboard */; };
 		CAC1F9F1210F84CD00DA32F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAC1F9F0210F84CD00DA32F8 /* Assets.xcassets */; };
@@ -51,6 +52,7 @@
 		9E0A70326A03199B8BEB0A51 /* Pods-DadJokes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DadJokes.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DadJokes/Pods-DadJokes.debug.xcconfig"; sourceTree = "<group>"; };
 		BA4CFEA8D5098C9CD511C8A6 /* Pods-DadJokesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DadJokesTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DadJokesTests/Pods-DadJokesTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CA3CC4DD211153270085094D /* JokeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokeViewModel.swift; sourceTree = "<group>"; };
+		CA6CE012211186BF00D93D25 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
 		CAC1F9E6210F84CC00DA32F8 /* DadJokes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DadJokes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAC1F9E9210F84CC00DA32F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CAC1F9EE210F84CC00DA32F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 		CAC1FA08210F84CE00DA32F8 /* DadJokesUITests */ = {
 			isa = PBXGroup;
 			children = (
+				CA6CE012211186BF00D93D25 /* SnapshotHelper.swift */,
 				CAC1FA09210F84CE00DA32F8 /* DadJokesUITests.swift */,
 				CAC1FA0B210F84CE00DA32F8 /* Info.plist */,
 			);
@@ -466,6 +469,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CAC1FA0A210F84CE00DA32F8 /* DadJokesUITests.swift in Sources */,
+				CA6CE013211186BF00D93D25 /* SnapshotHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -538,6 +542,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -561,6 +566,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
@@ -598,6 +604,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -615,6 +622,7 @@
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
 		};
