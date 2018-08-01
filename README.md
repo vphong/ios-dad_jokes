@@ -1,6 +1,8 @@
 # the dad jokes app
 
-an app that gets a random dad joke from https://icanhazdadjoke.com/api and gradient from [uiGradients.com json data](http://uigradients.com/gradients.json)
+![travis ci](https://travis-ci.com/vphong/ios-dad_jokes.svg?branch=master)
+
+an app that gets a random dad joke from [icanhazdadjoke.com](https://icanhazdadjoke.com/api) and gradient from [uiGradients.com json data](http://uigradients.com/gradients.json)
 
 ## roadmap
 
@@ -19,8 +21,10 @@ an app that gets a random dad joke from https://icanhazdadjoke.com/api and gradi
   * star/save button, share button
   * saved jokes
   * theme settings
+* testing
 
 ## references
+
 * CodePath University materials
 * [Getting Started with CoreData](https://www.raywenderlich.com/173972/getting-started-with-core-data-tutorial-2)
 * [Apollo iOS: Installation](https://www.apollographql.com/docs/ios/installation.html)
