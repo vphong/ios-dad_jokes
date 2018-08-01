@@ -10,13 +10,15 @@ import ChameleonFramework
 
 class RandomJokeViewController: UIViewController {
 
-    var joke = Joke()
-    let api = RESTManager()
     
     @IBOutlet weak var jokeTextView: UITextView!
     
-    @IBOutlet var swipeGestureRecognizer: UISwipeGestureRecognizer!
+    private let api = RESTManager()
     
+    private var joke = Joke() {
+        willSet(newValue) {
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,7 +30,12 @@ class RandomJokeViewController: UIViewController {
 //            self.jokeTextView.text = jokeData.joke
 //        }
         
-        DispatchQueue.global(qos: .background).async {
+        // TODO: see if there's a better place to put this (app architecture - VM?)
+        // .userInitiated = highest priority (user loaded VC)
+        
+        
+//        DispatchQueue.global(qos: .userInitiated).async {
+            self.jokeTextView.alpha = 0.0
             
             self.api.getRandomJoke(completion: { (joke) in
                 self.joke = joke!
@@ -36,9 +43,12 @@ class RandomJokeViewController: UIViewController {
                 // UI updates always on main thread
                 DispatchQueue.main.async {
                     self.jokeTextView.text = self.joke.joke
+                    UIView.animate(withDuration: 0.2, delay: 0.0, options: UIViewAnimationOptions.curveEaseInOut, animations: {
+                        self.jokeTextView.alpha = 1.0
+                    })
                 }
             })
-        }
+//        }
         
         self.view.backgroundColor = GradientColor(UIGradientStyle.diagonal, frame: self.view.frame, colors: [UIColor.flatLime, UIColor(complementaryFlatColorOf: UIColor.flatLime)])
         
@@ -54,15 +64,28 @@ class RandomJokeViewController: UIViewController {
     
     // MARK: - Navigation
 
+    @IBAction func swipedLeft(_ sender: Any) {
+        
+        // segue doesn't exist - manually push
+        let newJokeVC = self.storyboard?.instantiateViewController(withIdentifier: "randomJoke")
+        self.navigationController?.pushViewController(newJokeVC!, animated: true)
+        
+    }
+    
+    @IBAction func swipedRight(_ sender: Any) {
+        
+   
+    }
+    
+    /*
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         
-        if segue.identifier == "newJokeSegue" {
-            // handle newJoke
-        }
         
     }
-
+    */
+    
+    
 }

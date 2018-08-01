@@ -21,6 +21,7 @@ an app that gets a random dad joke from https://icanhazdadjoke.com/api and gradi
   * theme settings
 
 ## references
+* CodePath University materials
 * [Getting Started with CoreData](https://www.raywenderlich.com/173972/getting-started-with-core-data-tutorial-2)
 * [Apollo iOS: Installation](https://www.apollographql.com/docs/ios/installation.html)
 * [Ray Wenderlich: Grand Central Dispatch](https://www.raywenderlich.com/148513/grand-central-dispatch-tutorial-swift-3-part-1)
