@@ -6,4 +6,4 @@ podfile: Podfile
 install:
   - bundle install
 script:
-  - fastlane beta
+  - fastlane tests

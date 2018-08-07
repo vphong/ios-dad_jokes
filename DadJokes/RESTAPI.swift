@@ -8,82 +8,80 @@
 
 import Foundation
 
-class RESTManager {
+class RESTManager : URLSessionDataDelegate {
     
     let endpoint = "https://icanhazdadjoke.com/"
-    var url: URL
-    var config: URLSessionConfiguration
-    
-    init() {
-        self.url = URL(string: self.endpoint)!
-        self.config = URLSessionConfiguration.default
-        self.config.httpAdditionalHeaders = [
+    lazy var url = URL(string: self.endpoint)
+    lazy var session: URLSession = {
+        let config = URLSessionConfiguration.default
+        config.waitsForConnectivity = true
+        config.httpAdditionalHeaders = [
             "User-Agent": "contact@vanna.io (https://github.com/vphong/ios-dad_jokes)",
             "Accept": "application/json"
         ]
-    }
+        return URLSession(configuration: config, delegate: (self as! URLSessionDelegate), delegateQueue: nil)
+    }()
+    private var dataTask: URLSessionDataTask?
+    
     
     func getRandomJoke(completion: @escaping ((Joke?) -> ())) {
         
-        var joke = Joke()
-        let session = URLSession(configuration: config)
+        self.dataTask?.cancel() // cancel datatask if exists for reuse
         
-        let task = session.dataTask(with: self.url) { (data, response, error) in
+        var joke = Joke()
+        var err: Error?
+        
+        self.dataTask = self.session.dataTask(with: self.url!) { (data, response, error) in
             
+            // executed just before leaving current scope - cleanup
+            defer {
+                
+                self.dataTask = nil
+            }
             
-            if let response = response as? HTTPURLResponse, response.statusCode == 200 {
-                
-                guard let data = data else {
-                    print("invalid data")
-                    return
-                    
-                }
-                
+            if let err = error {
+                // handle client error
+                joke.joke = "Error: \(err.localizedDescription)"
+                completion(joke)
+                return
+            }
+            
+            guard let response = response as? HTTPURLResponse, (200...299).contains(response.statusCode) else {
+                // handle server error
+                joke.joke = "Error: bad HTTP status. Is icanhazdadjokes.com online?"
+                completion(joke)
+                return
+            }
+            
+            // handle mimetype error
+            
+            if let data = data {
                 
                 // Swift 4 method
-                // must be in do/catch or if let bc dataTask can't throw
+                // must be in do/catch or if let bc URLSession.dataTask() can't throw
                 do {
-                    
+                    // success
                     joke = try JSONDecoder().decode(Joke.self, from: data)
-                    completion(joke)
+                    DispatchQueue.main.async {
+                        completion(joke)
+                    }
                     
                 } catch {
                     print("error decoding json")
+                    joke.joke = "Error: could not decode JSON."
+                    completion(joke)
                 }
                 
                 // Swift 3 method
                 // guard let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] else { return }
             }
-        
-            
             
         }
         
-        
-        
-        /*(data: Data, response, error) in
-            
-            if let error = error {
-                // handle errors
-                print(error.localizedDescription)
-            }
-            else if let response = response as? HTTPURLResponse,
-                response.statusCode == 200 {
-                // check status code of response
-                
-                
-                guard let data = data else { return }
-         
-         
-
-            }
-            
-            completion(joke)
-            
-        }*/
-        task.resume()
+        self.dataTask?.resume()
         
     }
     
+    func url
     
 }

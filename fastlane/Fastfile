@@ -18,6 +18,14 @@ setup_travis
 default_platform(:ios)
 
 platform :ios do
+
+  lane :tests do
+    run_tests(workspace: "DadJokes.xcworkspace",
+            devices: ["iPhone 6s", "iPhone X", "iPad Air"],
+            scheme: "DadJokes",
+            clean: true)
+  end
+
   desc "Generate new localized screenshots"
   lane :screenshots do
     capture_screenshots(workspace: "DadJokes.xcworkspace", scheme: "DadJokes")
@@ -38,6 +46,10 @@ platform :ios do
     # Add a git tag for this build. This will automatically
     # use an appropriate git tag name
     add_git_tag
+
+    
+    # Push the new commit and tag back to your git remote
+    push_to_git_remote
 
   end
 

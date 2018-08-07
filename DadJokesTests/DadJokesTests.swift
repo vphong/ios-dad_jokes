@@ -11,19 +11,45 @@ import XCTest
 
 class DadJokesTests: XCTestCase {
     
+    var apiUnderTest: RESTManager!
+    
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        
+        apiUnderTest = RESTManager()
+        
     }
     
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
+        
+        apiUnderTest = nil
         super.tearDown()
     }
     
-    func testExample() {
+    // MARK: - Models
+    func testAPIGetRandomJokeSuccess() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+        // 1. given: set up any values needed
+        var joke = Joke()
+        
+        // 2. when: execute call
+        apiUnderTest.getRandomJoke { (result) in
+            joke = result!
+        }
+        
+        // 3. then: assert expected result
+        XCTAssertNotNil(joke)
+        
+    }
+    func testAPIGetRandomJokeHTTPError() {
+        var joke = Joke()
+        
+        apiUnderTest.getRandomJoke { (<#Joke?#>) in
+            <#code#>
+        }
     }
     
     func testPerformanceExample() {

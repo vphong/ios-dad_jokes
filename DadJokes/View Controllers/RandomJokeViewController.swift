@@ -40,13 +40,11 @@ class RandomJokeViewController: UIViewController {
             self.api.getRandomJoke(completion: { (joke) in
                 self.joke = joke!
                 
-                // UI updates always on main thread
-                DispatchQueue.main.async {
-                    self.jokeTextView.text = self.joke.joke
-                    UIView.animate(withDuration: 0.2, delay: 0.0, options: UIViewAnimationOptions.curveEaseInOut, animations: {
-                        self.jokeTextView.alpha = 1.0
-                    })
-                }
+                self.jokeTextView.text = self.joke.joke
+                UIView.animate(withDuration: 0.2, delay: 0.0, options: UIViewAnimationOptions.curveEaseInOut, animations: {
+                    self.jokeTextView.alpha = 1.0
+                })
+                
             })
 //        }
         

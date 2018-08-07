@@ -12,10 +12,9 @@ import Apollo
 // subclass Decodable for easier json decoding
 struct Joke : Decodable {
     // make sure member vars are named after json return values
-    var id: String?
-    var joke: String?
+    var id: String!
+    var joke: String!
     
-    static func random() {
-        
-    }
 }
+
+
