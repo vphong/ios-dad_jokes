@@ -8,11 +8,13 @@
 
 import Foundation
 
-class RESTManager : URLSessionDataDelegate {
+class NetworkingClient {
     
-    let endpoint = "https://icanhazdadjoke.com/"
-    lazy var url = URL(string: self.endpoint)
-    lazy var session: URLSession = {
+    static let sharedInstance = NetworkingClient()
+    
+    private let apiEndpoint = "https://icanhazdadjoke.com/"
+    lazy private var url = URL(string: self.apiEndpoint)
+    lazy private var session: URLSession = {
         let config = URLSessionConfiguration.default
         config.waitsForConnectivity = true
         config.httpAdditionalHeaders = [
@@ -21,15 +23,13 @@ class RESTManager : URLSessionDataDelegate {
         ]
         return URLSession(configuration: config, delegate: (self as! URLSessionDelegate), delegateQueue: nil)
     }()
+    
     private var dataTask: URLSessionDataTask?
     
     
-    func getRandomJoke(completion: @escaping ((Joke?) -> ())) {
+    func getRandomJokeFromAPI(completion: @escaping ((Joke?) -> Void)) {
         
         self.dataTask?.cancel() // cancel datatask if exists for reuse
-        
-        var joke = Joke()
-        var err: Error?
         
         self.dataTask = self.session.dataTask(with: self.url!) { (data, response, error) in
             
@@ -41,15 +41,15 @@ class RESTManager : URLSessionDataDelegate {
             
             if let err = error {
                 // handle client error
-                joke.joke = "Error: \(err.localizedDescription)"
-                completion(joke)
+                print("Error: \(err.localizedDescription)")
+                completion(nil)
                 return
             }
             
             guard let response = response as? HTTPURLResponse, (200...299).contains(response.statusCode) else {
                 // handle server error
-                joke.joke = "Error: bad HTTP status. Is icanhazdadjokes.com online?"
-                completion(joke)
+                print("Error: bad HTTP status. Is icanhazdadjokes.com online?")
+                completion(nil)
                 return
             }
             
@@ -58,18 +58,17 @@ class RESTManager : URLSessionDataDelegate {
             if let data = data {
                 
                 // Swift 4 method
-                // must be in do/catch or if let bc URLSession.dataTask() can't throw
+                // must be in do/catch to handle errors thrown
                 do {
                     // success
-                    joke = try JSONDecoder().decode(Joke.self, from: data)
+                    let joke = try JSONDecoder().decode(Joke.self, from: data)
                     DispatchQueue.main.async {
                         completion(joke)
                     }
                     
                 } catch {
-                    print("error decoding json")
-                    joke.joke = "Error: could not decode JSON."
-                    completion(joke)
+                    print("Error: could not decode JSON.")
+                    completion(nil)
                 }
                 
                 // Swift 3 method
@@ -81,7 +80,4 @@ class RESTManager : URLSessionDataDelegate {
         self.dataTask?.resume()
         
     }
-    
-    func url
-    
 }

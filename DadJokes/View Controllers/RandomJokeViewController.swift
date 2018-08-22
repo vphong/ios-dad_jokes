@@ -13,12 +13,8 @@ class RandomJokeViewController: UIViewController {
     
     @IBOutlet weak var jokeTextView: UITextView!
     
-    private let api = RESTManager()
+    private let api = NetworkingClient.sharedInstance
     
-    private var joke = Joke() {
-        willSet(newValue) {
-        }
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,28 +26,30 @@ class RandomJokeViewController: UIViewController {
 //            self.jokeTextView.text = jokeData.joke
 //        }
         
-        // TODO: see if there's a better place to put this (app architecture - VM?)
-        // .userInitiated = highest priority (user loaded VC)
         
         
-//        DispatchQueue.global(qos: .userInitiated).async {
-            self.jokeTextView.alpha = 0.0
+        self.jokeTextView.alpha = 0.0
+        
+        DispatchQueue.global(qos: .userInitiated).async {
             
-            self.api.getRandomJoke(completion: { (joke) in
-                self.joke = joke!
-                
-                self.jokeTextView.text = self.joke.joke
-                UIView.animate(withDuration: 0.2, delay: 0.0, options: UIViewAnimationOptions.curveEaseInOut, animations: {
-                    self.jokeTextView.alpha = 1.0
-                })
-                
+            self.api.getRandomJokeFromAPI(completion: { (joke) in
+                if let joke = joke {
+                    self.updateUI(with: joke)
+                }
             })
-//        }
+        }
         
         self.view.backgroundColor = GradientColor(UIGradientStyle.diagonal, frame: self.view.frame, colors: [UIColor.flatLime, UIColor(complementaryFlatColorOf: UIColor.flatLime)])
         
         self.jokeTextView.textColor = UIColor.lightText
         
+    }
+    
+    func updateUI(with joke: Joke) {
+        self.jokeTextView.text = joke.text
+        UIView.animate(withDuration: 0.2, delay: 0.0, options: UIViewAnimationOptions.curveEaseInOut, animations: {
+            self.jokeTextView.alpha = 1.0
+        })
     }
 
     override func didReceiveMemoryWarning() {

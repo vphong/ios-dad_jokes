@@ -23,7 +23,7 @@
 		CAC1FA2B210F8BA100DA32F8 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC1FA2A210F8BA100DA32F8 /* API.swift */; };
 		CAC1FA2D210F8D8400DA32F8 /* Joke.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC1FA2C210F8D8400DA32F8 /* Joke.swift */; };
 		CADD8AB9210FC88000718122 /* schema.json in Resources */ = {isa = PBXBuildFile; fileRef = CADD8AB8210FC88000718122 /* schema.json */; };
-		CAE4E634210FFD4C0000D7AB /* RESTAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE4E633210FFD4C0000D7AB /* RESTAPI.swift */; };
+		CAE4E634210FFD4C0000D7AB /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE4E633210FFD4C0000D7AB /* APIClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,7 +70,7 @@
 		CAC1FA2A210F8BA100DA32F8 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		CAC1FA2C210F8D8400DA32F8 /* Joke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Joke.swift; sourceTree = "<group>"; };
 		CADD8AB8210FC88000718122 /* schema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
-		CAE4E633210FFD4C0000D7AB /* RESTAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RESTAPI.swift; sourceTree = "<group>"; };
+		CAE4E633210FFD4C0000D7AB /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		D98CA955B0645BDCC2E5F136 /* Pods_DadJokesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DadJokesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F830047F369F596FFA665DB1 /* Pods-DadJokesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DadJokesTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DadJokesTests/Pods-DadJokesTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -147,7 +147,7 @@
 				CAC1FA1C210F87C600DA32F8 /* View Controllers */,
 				CAC1F9E9210F84CC00DA32F8 /* AppDelegate.swift */,
 				CAC1FA2A210F8BA100DA32F8 /* API.swift */,
-				CAE4E633210FFD4C0000D7AB /* RESTAPI.swift */,
+				CAE4E633210FFD4C0000D7AB /* APIClient.swift */,
 				CADD8AB8210FC88000718122 /* schema.json */,
 				CAC1F9ED210F84CC00DA32F8 /* Main.storyboard */,
 				CAC1F9F0210F84CD00DA32F8 /* Assets.xcassets */,
@@ -450,7 +450,7 @@
 				CAC1FA1E210F882C00DA32F8 /* RandomJokeViewController.swift in Sources */,
 				CA3CC4DE211153270085094D /* JokeViewModel.swift in Sources */,
 				CAC1FA2B210F8BA100DA32F8 /* API.swift in Sources */,
-				CAE4E634210FFD4C0000D7AB /* RESTAPI.swift in Sources */,
+				CAE4E634210FFD4C0000D7AB /* APIClient.swift in Sources */,
 				CAC1FA2D210F8D8400DA32F8 /* Joke.swift in Sources */,
 				CAC1F9EA210F84CC00DA32F8 /* AppDelegate.swift in Sources */,
 			);
